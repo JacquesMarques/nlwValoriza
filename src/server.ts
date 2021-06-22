@@ -10,5 +10,6 @@ app.post("/test", (request, response) => {
     return response.send("Olá NLW método Post");
 });
 
+
 app.listen(3000, () => console.log("Server is running NLW"));
 
