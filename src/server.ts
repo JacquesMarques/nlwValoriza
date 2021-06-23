@@ -1,15 +1,9 @@
-import express, {Request, request, Response, response} from "express";
+import "reflect-metadata";
+import express from "express";
 
 const app = express();
 
-app.get("/test", (request, response) => {
-    return response.send("Olá NLW");
-});
+import "./database";
 
-app.post("/test", (request, response) => {
-    return response.send("Olá NLW método Post");
-});
-
-
-app.listen(3000, () => console.log("Server is running NLW"));
+app.listen(3000, () => console.log("Server is running"));
 
