@@ -1,5 +1,5 @@
 import {getCustomRepository} from "typeorm";
-import {UserRepository} from "../repositories/UserRepository";
+import {UsersRepository} from "../repositories/UsersRepository";
 import { compare } from "bcryptjs";
 import { sign  } from "jsonwebtoken";
 
@@ -10,7 +10,7 @@ interface IAuthenticateUserRequest {
 
 export class AuthenticateUserService {
     async execute({ email, password}: IAuthenticateUserRequest ) {
-        const userRepository = getCustomRepository(UserRepository);
+        const userRepository = getCustomRepository(UsersRepository);
 
         // Verifica se email existe
         const user = await userRepository.findOne({

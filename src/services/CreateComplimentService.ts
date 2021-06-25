@@ -1,6 +1,6 @@
 import { getCustomRepository } from "typeorm";
-import { ComplimentRepository } from "../repositories/ComplimentRepository";
-import { UserRepository } from "../repositories/UserRepository";
+import { ComplimentsRepository } from "../repositories/ComplimentsRepository";
+import { UsersRepository } from "../repositories/UsersRepository";
 
 interface IComplimentRequest {
     tag_id: string;
@@ -11,8 +11,8 @@ interface IComplimentRequest {
 
 export class CreateComplimentService {
     async execute({ tag_id, user_sender, user_receiver, message } : IComplimentRequest) {
-        const complimentRepository = getCustomRepository(ComplimentRepository);
-        const userRepository = getCustomRepository(UserRepository);
+        const complimentRepository = getCustomRepository(ComplimentsRepository);
+        const userRepository = getCustomRepository(UsersRepository);
 
         if (user_receiver === user_sender) {
             throw new Error("User Receiver cannot by equal User Sender");
